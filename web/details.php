@@ -1,7 +1,7 @@
 <?php 
     $objectId = $_GET["oid"];
     $object = getObject($objectId);
- 
+    $nearObjects = getNearObjects($objectId);
 ?>
     <div class="wrapper">
         <!-- Start Product Details Area -->
@@ -17,6 +17,16 @@
                                     <div class="portfolio-full-image tab-content">
                                         <div role="tabpanel" class="tab-pane fade in active" id="img-tab-1">
                                             <img src="<?php echo $object["path"]; ?>" alt="full-image">
+                                        </div>
+                                        <center><h3><b>← Near objects →</b></h3></center>
+                                        <div class="row">
+                                            <?php foreach ($nearObjects as $nearObject): ?>
+                                            <div role="tabpanel" class="col-md-3">
+                                             <a href="/web/index.php?page=details&oid=<?php echo $nearObject["id"]; ?>">
+                                                <img src="<?php echo $nearObject["path"]; ?>" alt="full-image">
+                                             </a>
+                                            </div>
+                                            <?php endforeach; ?>
                                         </div>
                                     </div>
                                 </div>
@@ -43,7 +53,8 @@
                                     </div>
                                 </div>
                             <br><br>
-                            <form action = "php/details-process.php" method="POST">
+                            <button onclick="showTagsForm(this)" id="buttonDetailsForm">+</button>
+                            <form action = "php/details-process.php" method="POST" id="detailsForm">
                                 <input type = "text" name = "tags" placeholder="Tags separated by comma">
                                 <input type = "password" name="password" placeholder = "Password">
                                 <input type = "hidden" name="id" value="<?php echo $object["id"]; ?>">

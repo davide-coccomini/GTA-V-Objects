@@ -440,4 +440,8 @@ function copyText(id, button) {
     button.value = "COPIED";
 }  
 
+function showTagsForm(button){
+    button.style.display = "none";
+    document.getElementById("detailsForm").style.display = "block";
+}
 

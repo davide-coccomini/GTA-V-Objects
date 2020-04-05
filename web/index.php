@@ -11,6 +11,7 @@
     <link rel="shortcut icon" type="image/png" href="images/favicon.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     
+    <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesom.min.css">
 
     <!-- All css files are included here. -->
     <!-- Bootstrap fremwork main css -->
