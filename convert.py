@@ -1,7 +1,7 @@
 import os
 from os.path import isfile, join, splitext
 
-BASE_PATH = "./images"
+BASE_PATH = "./objects"
 
 f = open("result.sql","w+")
 
@@ -11,6 +11,7 @@ for category in os.listdir(BASE_PATH):
         for file_name in os.listdir(join(BASE_PATH, category, raw_subcategory)):
             display_name = splitext(file_name)[0]
             f.write("INSERT INTO objects(display_name, file_name, category, subcategory) VALUES('"+display_name+"','"+file_name+"','"+category+"','"+subcategory+"');\n")
+
 
 
 f.close() 
